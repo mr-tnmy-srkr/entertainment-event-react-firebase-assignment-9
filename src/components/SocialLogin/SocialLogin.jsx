@@ -1,28 +1,25 @@
-// import React from 'react';
 
-// import { useContext } from "react";
 import { GrFacebook } from "react-icons/gr";
 import { ImGoogle3 } from "react-icons/im";
-// import { AuthContext } from "../../provider/AuthProvider";
-// import toast from "react-hot-toast";
-// import useAuthContext from "../../hook/useAuthContext";
+import useAuthContext from "../../hook/useAuthContext";
+
 
 const SocialLogin = () => {
-// const {googleSignIn} = useContext(AuthContext)
-// const {googleSignIn,facebookSignIn} = useAuthContext()
 
-const handleSocialLogin = (media)=>{console.log('object');}
-//   media()
-//   .then((result) => {
-    // console.log(result.user);
+const {googleSignIn,facebookSignIn} = useAuthContext()
+
+const handleSocialLogin = (media)=>{
+  media()
+  .then((result) => {
+    console.log(result.user);
     // toast.success("user logged in successfully");
    
-//   })
-//   .catch((error) => {
-    // console.error(error.message);
+  })
+  .catch((error) => {
+    console.error(error.message);
     // toast.error(error.message);
-//   });
-// }
+  });
+}
 
 
   return (

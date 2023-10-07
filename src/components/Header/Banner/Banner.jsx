@@ -1,4 +1,3 @@
-import React from 'react';
 import "./Banner.css"
 
 import banner from '../../../assets/Mesh-gradient.png'
@@ -12,9 +11,9 @@ const Banner = () => {
 
 
 
-            <div className="relative">
-            <div className="border-t border-gray-800 w-full absolute"></div>
-            <div className="absolute -top-3 left-1/2 bg-white px-4 transform -translate-x-1/2">
+            <div className="lg:relative">
+            <div className="border-t border-gray-800 w-full lg:absolute"></div>
+            <div className="lg:absolute -top-3 left-1/2 bg-white px-4 transform -translate-x-1/2">
             and take part in the 
             </div>
           </div>

@@ -1,5 +1,6 @@
 import QRCode from "react-qr-code";
 import logo from "../../assets/Logo.png";
+import { Link } from "react-router-dom";
 // import StarRatings from "react-star-ratings";
 
 
@@ -66,9 +67,9 @@ const Card = ({event}) => {
                     <img className="w-48" src={image} alt="" />
                   </div>
                   <div className="mt-6 md:hidden">
-                    <button className="btn btn-primary btn-sm capitalize">
+                   <Link to={`/viewDetails/${id}`}> <button className="btn btn-primary btn-sm capitalize">
                       View Details
-                    </button>
+                    </button></Link>
                   </div>
                 </div>
               </div>
@@ -103,7 +104,7 @@ const Card = ({event}) => {
               </div>
 
               <div className="text-center">
-                <button className="btn capitalize">View Details</button>
+              <Link to={`/viewDetails/${id}`}><button className="btn capitalize">View Details</button></Link>
               </div>
             </div>
           </div>

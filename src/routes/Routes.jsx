@@ -6,6 +6,7 @@ import Events from "../pages/Events/Events";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
 import { getEvents } from "../utils/getProducts";
+import ViewDetails from "../pages/VewDetails/ViewDetails";
 
 
 const routes = createBrowserRouter([
@@ -17,6 +18,10 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: getEvents,
+      },{
+        path: "/viewDetails/:id",
+        element: <ViewDetails />,
         loader: getEvents,
       },
       {
