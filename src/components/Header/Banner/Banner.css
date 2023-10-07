@@ -1,0 +1,20 @@
+.banner {
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+h2{
+    text-transform: uppercase;
+    background: conic-gradient(from 180deg at 50% 50%, #00CECB 52.49999821186066deg, #FF5E5B 135deg, #4CB944 270deg, #FFED66 360deg);
+    background-clip: text;
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .year{
+      text-transform: uppercase;
+      background: conic-gradient(from 180deg at 50% 50%, #00CECB 52.49999821186066deg, #FF5E5B 135deg, #4CB944 270deg, #FFED66 360deg);
+      background-clip: text;
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }

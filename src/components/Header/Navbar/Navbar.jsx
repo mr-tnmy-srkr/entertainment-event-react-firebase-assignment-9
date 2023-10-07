@@ -59,7 +59,7 @@ const [isOpen,setIsOpen] = useState(true)
               {NavLinks}
             </ul>}
           </div>
-          <Link to="/" className="font-bold text-2xl cursor-pointer">Events</Link>
+          <Link to="/" className="font-bold text-2xl cursor-pointer">Entertain</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{NavLinks}</ul>
