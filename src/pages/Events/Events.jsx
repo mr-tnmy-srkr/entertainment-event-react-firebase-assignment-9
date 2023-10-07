@@ -3,7 +3,7 @@ import Card from '../../components/Card/Card';
 
 const Events = () => {
     return (
-        <div>
+        <div className='min-h-screen'>
         <Card></Card>
             events
         </div>
