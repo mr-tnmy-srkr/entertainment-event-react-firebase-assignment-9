@@ -1,13 +1,15 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Header/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 const MainLayouts = () => {
-    return (
-        <div>
-        <Navbar></Navbar>
-            <Outlet></Outlet>
-        </div>
-    );
+  return (
+    <div className="2xl:container mx-auto px-4">
+      <Navbar></Navbar>
+      <Outlet></Outlet>
+      <Footer></Footer>
+    </div>
+  );
 };
 
 export default MainLayouts;

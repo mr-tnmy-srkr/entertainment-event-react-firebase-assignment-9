@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { CgCloseR } from "react-icons/cg";
 
@@ -59,7 +59,7 @@ const [isOpen,setIsOpen] = useState(true)
               {NavLinks}
             </ul>}
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <Link to="/" className="font-bold text-2xl cursor-pointer">Events</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{NavLinks}</ul>
