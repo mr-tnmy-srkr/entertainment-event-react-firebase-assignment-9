@@ -5,6 +5,8 @@ import MainLayouts from "../layouts/MainLayouts";
 import Events from "../pages/Events/Events";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
+import { getEvents } from "../utils/getProducts";
+
 
 const routes = createBrowserRouter([
   {
@@ -15,6 +17,7 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: getEvents,
       },
       {
         path: "/events",

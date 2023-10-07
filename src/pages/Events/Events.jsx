@@ -5,7 +5,7 @@ const Events = () => {
     return (
         <div className='min-h-screen'>
         <Card></Card>
-            events
+          
         </div>
     );
 };

@@ -1,19 +1,23 @@
 import QRCode from "react-qr-code";
 import logo from "../../assets/Logo.png";
 
-const Card = () => {
+
+const Card = ({event}) => {
+
+        const {id,name,card_background,description,date,star_rating,image} = event || {};
+
   return (
-    <div className="grid md:grid-cols-2 gap-5">
-      <div className="grid md:grid-cols-3  font-lato h-48">
+    // <div className="grid md:grid-cols-2 gap-5">
+      <div className="grid md:grid-cols-3  font-lato ">
         <div className="col-span-2 h-full  p-6 shadow-xl rounded-xl bg-cardBg">
           <h1 className="font-koulen text-3xl pb-4">
-            DiGITAL MEDIA <span className="text-lg ml-40">2023</span>{" "}
+           {name} <span className="text-lg ml-40">2023</span>{" "}
           </h1>
           <hr className="  " />
           <div className="   outline-dashed outline-2 outline-offset-2">
             <div className="p-4">
               <h2 className="text-xl font-medium mb-1">100% ONLINE EVENT</h2>
-              <p className="text-lg font-medium">DESIGNERS</p>
+              {/* <p className="text-lg font-medium">DESIGNERS</p> */}
               <div className="flex justify-between">
                 <div className="">
                   <p className="font-normal pt-1">
@@ -88,7 +92,7 @@ const Card = () => {
           </div>
         </div>
         <div>
-          <div className="col-span-1 h-full bg-qrBg bg-no-repeat bg-cover rounded-r-xl hidden md:block">
+          <div className="col-span-1 h-full bg-qrBg bg-no-repeat bg-cover rounded-r-xl hidden md:block shadow-xl">
             <div className="flex flex-col h-full gap-10 justify-center items-center">
               <div>
                 <img className="h-12" src={logo} alt="" />
@@ -125,7 +129,7 @@ const Card = () => {
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
