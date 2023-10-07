@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <h2 className="text-4xl">This is home</h2>
-      <div className="grid md:grid-cols-2 gap-10">
+      <div className="grid lg:grid-cols-2 gap-10">
         {events?.map((event) => {
           return <Card key={event.id} event={event}></Card>;
         })}

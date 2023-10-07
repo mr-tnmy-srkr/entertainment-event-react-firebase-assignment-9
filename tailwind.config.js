@@ -10,8 +10,7 @@ export default {
         lato: ["Lato", "sans-serif"],
       },
       backgroundImage: {
-        cardBg: "url('')",
-        qrBg: "url('')",
+        qrBg: "url('https://i.ibb.co/ckBFKxX/Rectangle-14.png')",
       
       },
     },

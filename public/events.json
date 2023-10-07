@@ -3,10 +3,10 @@
       {
         "id": 1,
         "name": "Musical Concert",
-        "card_background": "https://i.ibb.co/ckBFKxX/Rectangle-14.png",
+        "card_background": "https://i.ibb.co/t2SQcPV/Rectangle-9.png",
         "price": 10,
         "description": "A musical festival is a live event or series of performances that showcase various musical acts and genres, often held over a specific period of time in a designated venue or outdoor location. These festivals bring together music enthusiasts and artists, creating a vibrant and immersive experience centered around music",
-        "date": "2023-10-07",
+        "date": "2023-12-07",
         "star_rating": 4.5,
         "image": "https://i.ibb.co/4KxrbrW/air.jpg"
       },
@@ -16,7 +16,7 @@
         "card_background": "https://i.ibb.co/xhbjm3J/Rectangle-13-1.png",
         "price": 12,
         "description": "A film festival is a curated event that showcases a selection of films to a live audience. These festivals can range from small, local events to large, internationally recognized gatherings, and they play a significant role in the film industry by promoting new films, fostering cultural exchange, and providing a platform for filmmakers, actors, producers, and film enthusiasts to come together.",
-        "date": "2023-10-08",
+        "date": "2023-12-08",
         "star_rating": 5.0,
         "image": "https://i.ibb.co/9vCCRGr/3866658.jpg"
       },
@@ -26,7 +26,7 @@
         "card_background": "https://i.ibb.co/mDsCGMT/Rectangle-13-3.png",
         "price": 13,
         "description": "A comedy show, often referred to as a comedy performance or comedy act, is a live entertainment event where comedians or comedic performers entertain an audience through jokes, humor, anecdotes, satire, and various comedic routines. The main goal of a comedy show is to make the audience laugh and enjoy a lighthearted and entertaining experience.",
-        "date": "2023-10-09",
+        "date": "2023-12-09",
         "star_rating": 4.0,
         "image": "https://i.ibb.co/LP0GwJc/pexe.jpg"
       },
@@ -36,7 +36,7 @@
         "card_background": "https://i.ibb.co/8xLMFns/rect.png",
         "price": 15,
         "description": "Live theater, also known as live performance or live stage performance, is a form of entertainment where a play, musical, or other dramatic performance is presented by actors or performers in front of a live audience. The performance is typically staged in a theater, auditorium, or other designated performance space, and it involves a combination of acting, dialogue, music, dance, and visual elements to convey a story or message.",
-        "date": "2023-10-07",
+        "date": "2023-12-10",
         "star_rating": 4.8,
         "image": "https://i.ibb.co/pWbQ404/rfdb.jpg"
       },
@@ -46,17 +46,17 @@
         "card_background": "https://i.ibb.co/9Nxc9Bt/Rectangle-13-6.png",
         "price": 17,
         "description": "Performing arts encompass a diverse range of creative disciplines where artists use their bodies, voices, and skills to convey artistic expressions to an audience. These expressions often involve movement, sound, and visuals to tell stories, evoke emotions, and communicate ideas. The performing arts include various forms, each with its own techniques, styles, and cultural influences. Here's an overview of the key aspects and forms within the performing arts.",
-        "date": "2023-10-08",
+        "date": "2023-12-11",
         "star_rating": 4.2,
         "image": "https://i.ibb.co/9449JkW/hh.jpg"
       },
       {
         "id": 6,
         "name": "Dance Concert",
-        "card_background": "https://i.ibb.co/t2SQcPV/Rectangle-9.png",
+        "card_background": "https://i.ibb.co/Phd7FPX/blue.png",
         "price": 18,
         "description": "A dance concert, also known as a dance performance or dance recital, is a live event where dancers or dance companies present a choreographed collection of dances to an audience. These concerts often showcase a diverse range of dance styles, themes, and performances, and they may be presented by professional dance companies, dance schools, or community groups.",
-        "date": "2023-10-09",
+        "date": "2023-12-12",
         "star_rating": 3.8,
         "image": "https://i.ibb.co/3M2rzN6/df.jpg"
       }
