@@ -72,7 +72,7 @@ const [isOpen,setIsOpen] = useState(true)
             </div>
           </label>
 
-          <a className="btn btn-primary capitalize ml-3 px-10">Login</a>
+          <Link to="/login" className="btn btn-primary capitalize ml-3 px-10 text-white">Login</Link>
         </div>
       </div>
     </div>
