@@ -13,7 +13,7 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
-  const { createUser } = useAuthContext();
+    const { createUser, updateUserProfile,logOut } = useAuthContext();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -66,7 +66,12 @@ const Signup = () => {
         const user = userCredential.user;
         console.log(user);
 
-        toast.success("User created successfully", {
+        //update user profile
+        updateUserProfile(fullName, photoUrl)})
+
+        .then(() => {
+
+        toast.success("User created successful Please Login Now", {
           position: "top-center",
           autoClose: 4000,
           hideProgressBar: false,
@@ -76,8 +81,10 @@ const Signup = () => {
           progress: undefined,
           theme: "colored",
         });
+        logOut();
         navigate("/login");
-      })
+
+        })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;

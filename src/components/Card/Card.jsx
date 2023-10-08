@@ -77,7 +77,7 @@ const Card = ({event}) => {
           <div className="col-span-1 h-full bg-qrBg bg-no-repeat bg-cover rounded-r-xl hidden md:block shadow-xl">
             <div className="flex flex-col h-full gap-6 justify-center items-center">
               <div>
-                <img className="h-12" src={logo} alt="" />
+                <img className="h-12 w-14" src="/logo.png" alt="" />
               </div>
 
               <div
