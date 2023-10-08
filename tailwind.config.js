@@ -8,6 +8,7 @@ export default {
       fontFamily: {
         koulen: ["Koulen", "cursive"],
         lato: ["Lato", "sans-serif"],
+        outline: ['Kumar One Outline', 'cursive'],
       },
       backgroundImage: {
         qrBg: "url('https://i.ibb.co/ckBFKxX/Rectangle-14.png')",

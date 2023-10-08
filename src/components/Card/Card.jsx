@@ -8,6 +8,8 @@ const Card = ({event}) => {
 
         const {id,name,price,card_background,description,date,star_rating,image} = event || {};
 
+
+
         const card_bgi = {
           backgroundImage: `url(${card_background})`,
           backgroundRepeat: 'no-repeat',
@@ -53,11 +55,6 @@ const Card = ({event}) => {
                       margin: "0 auto",
                       maxWidth: 96,
                       width: "100%",
-
-                      //   position: "absolute",
-                      //   top: "50%",
-                      //   left: "50%",
-                      //   transform: "translate(-50%, -50%)",
                     }}
                   >
                     <img className="w-full h-full" src={image} alt="" />
@@ -98,7 +95,7 @@ const Card = ({event}) => {
                     maxWidth: "100%",
                     width: "100%",
                   }}
-                  value={`www.google.com`}
+                  value={`localhost/viewDetails/${id}`}
                   viewBox={`0 0 256 256`}
                 />
               </div>

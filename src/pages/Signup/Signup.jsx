@@ -1,17 +1,70 @@
 import { Link } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import useAuthContext from "../../hook/useAuthContext";
+import { BiShow } from "react-icons/bi";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
+import { useState } from "react";
+import { checkActionCode } from "firebase/auth";
 
 const Signup = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const { createUser } = useAuthContext();
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const firstName = form.get("firstName");
+    const lastName = form.get("lastName");
+    const email = form.get("email");
+    const photoUrl = form.get("photoUrl");
+    const password = form.get("password");
+    const confirmPassword = form.get("confirmPassword");
+    const accepted = e.target.terms.checked;
+
+    // const accepted = form.get("accepted") === "on";
+    // console.log(accepted);
+
+    // console.log(firstName,lastName,email,photoUrl,password,confirmPassword);
+
+    //password validation
+    if (password.length < 6) {
+      setErrorMessage("Password must be at least 6 characters!");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      setErrorMessage("Password should have at least one uppercase character!");
+      return;
+    } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      setErrorMessage("Password should have at least one special character!");
+      return;
+    } else if (!accepted) {
+      setErrorMessage("Please accept our terms and conditions");
+      return;
+    }
+
+    //user signup
+    createUser(email, password)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  };
+
   return (
     <div>
-     
-
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-300 to-purple-200 py-20">
         <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md">
           <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
             Sign Up
           </h2>
-          <form className="space-y-4">
+          <form onSubmit={handleRegister} className="space-y-4">
             <div className="flex space-x-4">
               <div className="flex-1">
                 <label
@@ -23,8 +76,9 @@ const Signup = () => {
                 <input
                   type="text"
                   id="firstName"
+                  name="firstName"
                   // value={firstName}
-                  // onChange={handleFirstNameChange}
+
                   placeholder="Enter your first name"
                   className="w-full border p-3 rounded text-gray-800 focus:outline-none focus:ring focus:border-blue-300"
                   required
@@ -40,8 +94,9 @@ const Signup = () => {
                 <input
                   type="text"
                   id="lastName"
+                  name="lastName"
                   // value={lastName}
-                  // onChange={handleLastNameChange}
+
                   placeholder="Enter your last name"
                   className="w-full border p-3 rounded text-gray-800 focus:outline-none focus:ring focus:border-blue-300"
                   required
@@ -58,8 +113,9 @@ const Signup = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
                 //   value={email}
-                //   onChange={handleEmailChange}
+
                 placeholder="Enter your email"
                 className="w-full border p-3 rounded text-gray-800 focus:outline-none focus:ring focus:border-blue-300"
                 required
@@ -67,22 +123,54 @@ const Signup = () => {
             </div>
             <div>
               <label
+                htmlFor="email"
+                className="block text-lg mb-2 text-gray-800"
+              >
+                Image Link:
+              </label>
+              <input
+                type="photoUrl"
+                id="photo_url"
+                name="photoUrl"
+                //   value={email}
+
+                placeholder="Enter your photo URL"
+                className="w-full border p-3 rounded text-gray-800 focus:outline-none focus:ring focus:border-blue-300"
+                required
+              />
+            </div>
+            <div className="relative">
+              <label
                 htmlFor="password"
                 className="block text-lg mb-2 text-gray-800"
               >
                 Password:
               </label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 id="password"
+                name="password"
                 autoComplete="on"
                 //   value={password}
-                //   onChange={handlePasswordChange}
+
                 placeholder="Enter your password"
-                className="w-full border p-3 rounded text-gray-800 focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full border p-3 rounded text-gray-800 focus:outline-none focus:ring focus:border-blue-300 "
                 required
               />
+              <span
+                onMouseDown={() => setShowPassword(true)}
+                onMouseUp={() => setShowPassword(false)}
+                onMouseLeave={() => setShowPassword(false)}
+                className="absolute bottom-3 right-3 cursor-pointer"
+              >
+                {showPassword ? (
+                  <AiOutlineEyeInvisible size={25} />
+                ) : (
+                  <BiShow size={25} />
+                )}
+              </span>
             </div>
+
             <div>
               <label
                 htmlFor="confirmPassword"
@@ -93,14 +181,37 @@ const Signup = () => {
               <input
                 type="password"
                 id="confirmPassword"
+                name="confirmPassword"
                 autoComplete="on"
                 //   value={confirmPassword}
-                //   onChange={handleConfirmPasswordChange}
+
                 placeholder="Confirm your password"
                 className="w-full border p-3 rounded text-gray-800 focus:outline-none focus:ring focus:border-blue-300"
                 required
               />
             </div>
+
+            <p className="flex items-center">
+              <input
+                className="w-5 h-5"
+                type="checkbox"
+                name="terms"
+                id="terms"
+              />
+              <label htmlFor="terms" className="ml-2">
+                Please accept our{" "}
+                <a href="#" className="text-blue-800 font-bold cursor-pointer">
+                  T&C
+                </a>
+              </label>
+            </p>
+
+            {errorMessage && (
+              <p className="text-yellow-600 font-bold">{errorMessage}</p>
+            )}
+
+           
+
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"

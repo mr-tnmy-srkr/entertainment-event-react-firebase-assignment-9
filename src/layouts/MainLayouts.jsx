@@ -7,7 +7,7 @@ const MainLayouts = () => {
     <div className="2xl:container mx-auto px-2">
       <Navbar></Navbar>
       <Outlet></Outlet>
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </div>
   );
 };

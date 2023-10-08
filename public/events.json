@@ -1,17 +1,8 @@
 {
     "events": [
+      
       {
         "id": 1,
-        "name": "Musical Concert",
-        "card_background": "https://i.ibb.co/t2SQcPV/Rectangle-9.png",
-        "price": 10,
-        "description": "A musical festival is a live event or series of performances that showcase various musical acts and genres, often held over a specific period of time in a designated venue or outdoor location. These festivals bring together music enthusiasts and artists, creating a vibrant and immersive experience centered around music",
-        "date": "2023-12-07",
-        "star_rating": 4.5,
-        "image": "https://i.ibb.co/4KxrbrW/air.jpg"
-      },
-      {
-        "id": 2,
         "name": "Live Theater",
         "card_background": "https://i.ibb.co/xhbjm3J/Rectangle-13-1.png",
         "price": 12,
@@ -19,6 +10,16 @@
         "date": "2023-12-08",
         "star_rating": 5.0,
         "image": "https://i.ibb.co/pWbQ404/rfdb.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Musical Concert",
+        "card_background": "https://i.ibb.co/t2SQcPV/Rectangle-9.png",
+        "price": 10,
+        "description": "A musical festival is a live event or series of performances that showcase various musical acts and genres, often held over a specific period of time in a designated venue or outdoor location. These festivals bring together music enthusiasts and artists, creating a vibrant and immersive experience centered around music",
+        "date": "2023-12-07",
+        "star_rating": 4.5,
+        "image": "https://i.ibb.co/4KxrbrW/air.jpg"
       },
       {
         "id": 3,
