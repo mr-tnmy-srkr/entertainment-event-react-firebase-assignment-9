@@ -5,13 +5,13 @@ import { BiShow } from "react-icons/bi";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-const navigate= useNavigate()
+  const navigate = useNavigate();
 
   const { createUser } = useAuthContext();
 
@@ -65,18 +65,18 @@ const navigate= useNavigate()
         // Signed up
         const user = userCredential.user;
         console.log(user);
-       
-          toast.success('User created successfully', {
-            position: "top-center",
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-            });
-navigate('/login')
+
+        toast.success("User created successfully", {
+          position: "top-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        navigate("/login");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -91,8 +91,7 @@ navigate('/login')
           draggable: true,
           progress: undefined,
           theme: "colored",
-          });
-
+        });
       });
   };
 
@@ -280,19 +279,17 @@ navigate('/login')
         </div>
       </div>
 
-
-<ToastContainer
-autoClose={4000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="colored"
-/>
-
+      <ToastContainer
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 };

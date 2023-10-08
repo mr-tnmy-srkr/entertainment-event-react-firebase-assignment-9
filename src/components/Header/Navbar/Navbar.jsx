@@ -10,14 +10,17 @@ import { ToastContainer, toast } from "react-toastify";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const { user, logOut } = useAuthContext();
-  console.log(user);
+const [show,setShow] = useState(false)
+
+
+  console.log(show);
   const NavLinks = (
     <>
-      <li>
+      <li className="text-lg font-medium">
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "underline" : ""
+            isPending ? "pending" : isActive ? "underline text-blue-700 font-bold text-lg" : "text-lg font-medium"
           }
         >
           Home
@@ -27,7 +30,7 @@ const Navbar = () => {
         <NavLink
           to="/events"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "underline" : ""
+            isPending ? "pending" : isActive ? "underline text-blue-700 font-bold text-lg" : "text-lg font-medium"
           }
         >
           Events
@@ -37,7 +40,7 @@ const Navbar = () => {
         <NavLink
           to="/bookTickets"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "underline" : ""
+            isPending ? "pending" : isActive ? "underline text-blue-700 font-bold text-lg" : "text-lg font-medium"
           }
         >
           Book Tickets
@@ -96,9 +99,9 @@ const Navbar = () => {
             {isOpen || (
               <ul
                 tabIndex={0}
-                className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52`}
+                className={`menu menu-sm dropdown-content mt-3 z-[1] p-5 shadow bg-base-100 rounded-box w-48`}
               >
-                {NavLinks}
+              {NavLinks}
               </ul>
             )}
           </div>
@@ -111,29 +114,52 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
+          {/* avatar part */}
           {user ? (
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
+            <label
+           
+              tabIndex={0}
+              className="btn btn-ghost btn-circle avatar relative"
+            >
+              <div className="w-10 rounded-full"  onClick={()=>setShow(!show)}>
                 <img src={user.photoURL} alt={user.displayName} />
               </div>
             </label>
           ) : (
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
+            <label
+              
+              tabIndex={0}
+              className="btn btn-ghost btn-circle avatar relative"
+            >
+              <div className="w-10 rounded-full"  onClick={()=>setShow(!show)}>
                 <RxAvatar size={40} />
               </div>
             </label>
           )}
 
-          <Link
-            to="/login"
-            onClick={handleLogout}
-            className={`btn capitalize ml-3 px-10 text-white ${
-              user ? "btn-primary" : "btn-info"
-            }`}
-          >
-            {!user ? "Login" : "Logout"}
-          </Link>
+{/* user info */}
+
+          {user && 
+          show &&
+            (<ul
+              tabIndex={0}
+              className={`font-bold menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box  absolute top-12 space-y-3`}
+            >
+              <li className="text-2xl ">{user?.displayName}</li>
+              <li className="text-lg">Update Profile</li>
+              <li className="text-lg">Settings</li>
+              <li onClick={handleLogout} className="text-lg cursor-pointer">
+                {user && "Logout"}
+              </li>
+            </ul>)
+           }
+         {/* login / logout button */}
+{
+  user ? <button onClick={handleLogout} className="btn btn-info capitalize ml-3 px-10 text-white">Logout</button> :
+  <Link to="/login" onClick={handleLogout} > 
+  <button className="btn btn-primary capitalize ml-3 px-10 text-white">Login</button></Link>
+}
+
         </div>
       </div>
       <ToastContainer

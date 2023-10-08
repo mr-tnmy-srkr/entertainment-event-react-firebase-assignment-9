@@ -21,22 +21,27 @@ const facebookProvider = new FacebookAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   //signup
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   //login
   const userLogin = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   //google signIn
   const googleSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, GoogleProvider);
   };
   //facebook signIn
   const facebookSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, facebookProvider);
   };
 //signOut
@@ -46,6 +51,7 @@ const logOut = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
         setUser(user);
+        setLoading(false);
     });
     return ()=>{
         unsubscribe();
@@ -54,6 +60,7 @@ const logOut = () => {
 
   const authInfo = {
     user,
+    loading,
     createUser,
     userLogin,
     logOut,
