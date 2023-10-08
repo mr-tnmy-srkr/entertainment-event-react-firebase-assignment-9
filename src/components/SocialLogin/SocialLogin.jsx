@@ -2,6 +2,7 @@
 import { GrFacebook } from "react-icons/gr";
 import { ImGoogle3 } from "react-icons/im";
 import useAuthContext from "../../hook/useAuthContext";
+import { ToastContainer, toast } from "react-toastify";
 
 
 const SocialLogin = () => {
@@ -11,13 +12,33 @@ const {googleSignIn,facebookSignIn} = useAuthContext()
 const handleSocialLogin = (media)=>{
   media()
   .then((result) => {
-    console.log(result.user);
-    // toast.success("user logged in successfully");
+    const user = result.user
+    console.log(user);
+    toast.success('SignIn successful', {
+      position: "top-center",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
    
   })
   .catch((error) => {
-    console.error(error.message);
-    // toast.error(error.message);
+    const errorCode = error.code;
+        const errorMessage = error.message;
+    toast.error(errorMessage, {
+      position: "bottom-center",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      // progress: ,
+      theme: "colored",
+      });
   });
 }
 
@@ -44,6 +65,17 @@ const handleSocialLogin = (media)=>{
           </p>
         </button>
       </div>
+      <ToastContainer
+autoClose={4000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+/>
     </div>
   );
 };

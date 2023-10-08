@@ -4,7 +4,8 @@ import useAuthContext from "../../hook/useAuthContext";
 import { BiShow } from "react-icons/bi";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { useState } from "react";
-import { checkActionCode } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,9 +15,13 @@ const Signup = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
+    //clear the error message
+    setErrorMessage("");
+
     const form = new FormData(e.currentTarget);
     const firstName = form.get("firstName");
     const lastName = form.get("lastName");
+    const fullName = `${firstName} ${lastName}`;
     const email = form.get("email");
     const photoUrl = form.get("photoUrl");
     const password = form.get("password");
@@ -25,8 +30,15 @@ const Signup = () => {
 
     // const accepted = form.get("accepted") === "on";
     // console.log(accepted);
-
-    // console.log(firstName,lastName,email,photoUrl,password,confirmPassword);
+    /* console.log(
+      firstName,
+      lastName,
+      fullName,
+      email,
+      photoUrl,
+      password,
+      confirmPassword
+    ); */
 
     //password validation
     if (password.length < 6) {
@@ -38,6 +50,8 @@ const Signup = () => {
     } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
       setErrorMessage("Password should have at least one special character!");
       return;
+    } else if (!(password === confirmPassword)) {
+      return setErrorMessage("Confirm password should be same as password!");
     } else if (!accepted) {
       setErrorMessage("Please accept our terms and conditions");
       return;
@@ -49,11 +63,34 @@ const Signup = () => {
         // Signed up
         const user = userCredential.user;
         console.log(user);
+       
+          toast.success('User created successfully', {
+            position: "top-center",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        // console.log(errorCode, errorMessage);
+        toast.error(errorMessage, {
+          position: "bottom-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+
       });
   };
 
@@ -210,8 +247,6 @@ const Signup = () => {
               <p className="text-yellow-600 font-bold">{errorMessage}</p>
             )}
 
-           
-
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
@@ -242,6 +277,20 @@ const Signup = () => {
           <SocialLogin></SocialLogin>
         </div>
       </div>
+
+
+<ToastContainer
+autoClose={4000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+/>
+
     </div>
   );
 };
