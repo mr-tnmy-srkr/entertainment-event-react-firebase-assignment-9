@@ -3,11 +3,14 @@ import { GrFacebook } from "react-icons/gr";
 import { ImGoogle3 } from "react-icons/im";
 import useAuthContext from "../../hook/useAuthContext";
 import { ToastContainer, toast } from "react-toastify";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const SocialLogin = () => {
 
 const {googleSignIn,facebookSignIn} = useAuthContext()
+const navigate =useNavigate();
+const location = useLocation()
 
 const handleSocialLogin = (media)=>{
   media()
@@ -24,7 +27,7 @@ const handleSocialLogin = (media)=>{
       progress: undefined,
       theme: "colored",
       });
-   
+      navigate(location?.state ? location.state : '/')
   })
   .catch((error) => {
     const errorCode = error.code;

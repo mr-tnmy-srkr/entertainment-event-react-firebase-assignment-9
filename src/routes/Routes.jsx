@@ -7,6 +7,7 @@ import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
 import { getEvents } from "../utils/getProducts";
 import ViewDetails from "../pages/VewDetails/ViewDetails";
+import PrivateRoute from "./PrivateRoute";
 
 
 const routes = createBrowserRouter([
@@ -21,7 +22,7 @@ const routes = createBrowserRouter([
         loader: getEvents,
       },{
         path: "/viewDetails/:id",
-        element: <ViewDetails />,
+        element: <PrivateRoute><ViewDetails /></PrivateRoute>,
         loader: getEvents,
       },
       {
