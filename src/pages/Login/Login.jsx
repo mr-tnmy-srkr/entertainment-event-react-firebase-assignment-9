@@ -1,8 +1,61 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
-
+import useAuthContext from "../../hook/useAuthContext";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+const {userLogin} = useAuthContext();
+
+const location = useLocation();
+const navigate=useNavigate()
+
+
+const handleLogin =(e)=>{
+e.preventDefault();
+const form = new FormData(e.currentTarget)
+// console.log(form);
+const email = form.get('email')
+const password = form.get('password')
+console.log(email,password);
+
+
+userLogin(email, password)
+.then((userCredential) => {
+  // Signed in 
+  const user = userCredential.user;
+console.log(user);
+toast.success('User Login successful', {
+  position: "top-center",
+  autoClose: 4000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  theme: "colored",
+  });
+  navigate(location?.state ? location.state : '/')
+})
+.catch((error) => {
+  const errorCode = error.code;
+  const errorMessage = error.message;
+  toast.error(errorMessage, {
+    position: "bottom-center",
+    autoClose: 4000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "colored",
+    });
+});
+
+
+
+}
+
+
+
   return (
     <div>
      
@@ -12,7 +65,7 @@ const Login = () => {
           <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
             Login
           </h2>
-          <form className="space-y-4">
+          <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label
                 htmlFor="email"
@@ -23,8 +76,8 @@ const Login = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
                 //   value={email}
-                //   onChange={handleEmailChange}
                 placeholder="Enter your email"
                 className="w-full border p-3 rounded text-gray-800 focus:outline-none focus:ring focus:border-blue-300"
                 required
@@ -40,9 +93,9 @@ const Login = () => {
               <input
                 type="password"
                 id="password"
+                name="password"
                 autoComplete="on"
                 //   value={password}
-                //   onChange={handlePasswordChange}
                 placeholder="Enter your password"
                 className="w-full border p-3 rounded text-gray-800 focus:outline-none focus:ring focus:border-blue-300"
                 required
@@ -78,6 +131,18 @@ const Login = () => {
           <SocialLogin></SocialLogin>
         </div>
       </div>
+      <ToastContainer
+autoClose={4000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+/>
+
     </div>
   );
 };

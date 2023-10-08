@@ -36,7 +36,6 @@ const handleSocialLogin = (media)=>{
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      // progress: ,
       theme: "colored",
       });
   });

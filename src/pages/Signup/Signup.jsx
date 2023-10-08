@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import useAuthContext from "../../hook/useAuthContext";
 import { BiShow } from "react-icons/bi";
@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+const navigate= useNavigate()
 
   const { createUser } = useAuthContext();
 
@@ -74,7 +76,7 @@ const Signup = () => {
             progress: undefined,
             theme: "colored",
             });
-
+navigate('/login')
       })
       .catch((error) => {
         const errorCode = error.code;

@@ -12,7 +12,7 @@ const Banner = () => {
             <div className="relative ">
               <div className="border-t border-white   w-full absolute"></div>
               <div className="absolute -top-3 left-1/2 text-white text-xs md:text-lg bg-black  px-4 transform -translate-x-1/2 ">
-                and take part in the
+                take part in the event
               </div>
             </div>
 
