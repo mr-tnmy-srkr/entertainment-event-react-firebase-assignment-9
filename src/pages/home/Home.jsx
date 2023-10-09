@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import ProgramOrganizer from "../../components/Card/ProgramOrganizer";
 import Marquee from "react-fast-marquee";
+import Accordian from "../../components/Accordian/Accordian";
 
 const Home = () => {
   const { events } = useLoaderData();
@@ -196,6 +197,11 @@ const Home = () => {
           </div>
         </Slider>
       </div>
+<div className="mb-8">
+<h2 className="text-4xl font-semibold text-center mb-8">FAQ</h2>
+  <Accordian></Accordian>
+</div>
+
     </div>
   );
 };
