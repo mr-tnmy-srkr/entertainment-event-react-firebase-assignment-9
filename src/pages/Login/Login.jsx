@@ -18,14 +18,14 @@ const form = new FormData(e.currentTarget)
 // console.log(form);
 const email = form.get('email')
 const password = form.get('password')
-console.log(email,password);
+// console.log(email,password);
 
 
 userLogin(email, password)
 .then((userCredential) => {
   // Signed in 
   const user = userCredential.user;
-console.log(user);
+// console.log(user);
 toast.success('User Login successful', {
   position: "top-center",
   autoClose: 4000,

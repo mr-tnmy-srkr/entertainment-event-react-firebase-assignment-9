@@ -16,7 +16,7 @@ const handleSocialLogin = (media)=>{
   media()
   .then((result) => {
     const user = result.user
-    console.log(user);
+    // console.log(user);
     toast.success('SignIn successful', {
       position: "top-center",
       autoClose: 4000,

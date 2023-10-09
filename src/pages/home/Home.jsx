@@ -1,22 +1,22 @@
-import { Link, useLoaderData } from "react-router-dom";
+import {  useLoaderData } from "react-router-dom";
 import Banner from "../../components/Header/Banner/Banner";
 import Card from "../../components/Card/Card";
 import Countdown from "react-countdown";
-import React, { Component } from "react";
+import  { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import ProgramOrganizer from "../../components/Card/ProgramOrganizer";
-import Marquee from "react-fast-marquee";
-import Accordian from "../../components/Accordian/Accordian";
+// import Marquee from "react-fast-marquee";
+import Accordion from "../../components/Accordion/Accordion";
 
 const Home = () => {
   const { events } = useLoaderData();
-  console.log(events);
+  // console.log(events);
 
  
 
-  const Completionist = () => <span>You are good to go!</span>;
+  // const Completionist = () => <span>You are good to go!</span>;
 
   const settings = {
     dots: true,
@@ -199,7 +199,7 @@ const Home = () => {
       </div>
 <div className="mb-8">
 <h2 className="text-4xl font-semibold text-center mb-8">FAQ</h2>
-  <Accordian></Accordian>
+  <Accordion></Accordion>
 </div>
 
     </div>

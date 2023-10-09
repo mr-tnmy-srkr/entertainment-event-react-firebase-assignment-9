@@ -14,13 +14,13 @@ const navigate = useNavigate()
     star_rating,
     image,
   } = findEvent || {};
-  console.log(findEvent);
+  // console.log(findEvent);
   const { events } = useLoaderData();
   const { id } = useParams();
 
   useEffect(() => {
     const findData = events.find((event) => event.id === parseInt(id));
-    console.log(findData);
+    // console.log(findData);
     setFindEvent(findData);
   }, [events, id]);
 

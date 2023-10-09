@@ -11,7 +11,7 @@ const Navbar = () => {
   const { user, logOut } = useAuthContext();
   const [show, setShow] = useState(false);
 
-  console.log(show);
+  // console.log(show);
   const NavLinks = (
     <>
       <li className="text-lg font-medium">

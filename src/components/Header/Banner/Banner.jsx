@@ -1,9 +1,6 @@
 import "./Banner.css";
-
 import banner from "../../../assets/banner.jpg";
-import Countdown from "react-countdown";
 const Banner = () => {
-  const Completionist = () => <span>You are good to go!</span>;
   return (
     <div className="">
       <div>
@@ -47,14 +44,6 @@ const Banner = () => {
             >
               <p className="text-2xl md:text-5xl text-white ">
                 Get your ticket
-                <span className="hidden">
-                <div>
-          <p className="text-xl mr-2">Remaining : </p>
-        <Countdown date={"2023-12-07T18:00:00"}>
-          <Completionist />
-        </Countdown>
-          </div>
-                </span>
               </p>
               
             </div>

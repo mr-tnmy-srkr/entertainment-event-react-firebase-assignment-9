@@ -1,10 +1,9 @@
-import React from "react";
 
-const Accordian = () => {
+const Accordion = () => {
   return (
     <div>
       <div className="collapse collapse-arrow bg-base-200">
-        <input type="radio" name="my-accordion-2" checked="checked" />
+        <input type="radio" name="my-accordion-2"  />
         <div className="collapse-title text-xl font-medium">
           What is the date and time of the event?
         </div>
@@ -59,4 +58,4 @@ const Accordian = () => {
   );
 };
 
-export default Accordian;
+export default Accordion;
