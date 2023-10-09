@@ -18,9 +18,9 @@ console.log(greetign);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer->  C: undefined
+#### Answer->  B: `ReferenceError: greetign is not defined`
 
-<i>Explanation : </i>
+<i>Explanation : In this case 'greeting' is declared but it's value is not assigned . And  'greetign' = {} which is not define but value is an empty object.So , console.log(greetign) -> will gave a reference error (greetign is not defined)</i>
 
 </p>
 </details>
@@ -40,12 +40,12 @@ sum(1, "2");
 - C: `"12"`
 - D: `3`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Answer-> C: `"12"`</b></summary>
 <p>
 
 #### Answer: ?
 
-<i>Write your explanation here</i>
+<i>Explanation : In the sum function, the parameters a and b are expected to be numbers but in the function call sum(1, "2"),first argument 1 is number and the second argument "2" is a string.So,in this case as,the + operator is used, it will concatenate them.</i>
 
 </p>
 </details>
@@ -71,7 +71,7 @@ console.log(food);
 
 #### Answer-> A: ['🍕', '🍫', '🥑', '🍔']
 
-<i>Explanation : </i>
+<i>Explanation :The info.favoriteFood variable is initially set to the first item in the food array, which is "🍕". However, later in the code, the value of info.favoriteFood is changed to "🍝", but this change doesn't affect the original food array.</i>
 
 </p>
 </details>
@@ -94,7 +94,7 @@ console.log(sayHi());
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer-> B: Hi there, undefined
+#### Answer-> B: `Hi there, undefined`
 
 <i>Explanation : After sayHi() is called without passing any arguments, then inside the sayHi function, the name parameter is undefined.So, The function returns a string using template literals: "Hi there, undefined".</i>
 
@@ -122,12 +122,12 @@ console.log(count);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer->C: 3
+#### Answer->  C: 3
 
-<i>Explanation : nums.forEach((num) => { ... }); iterates over each element in the nums array using the forEach method.If there is a truthy value in the 'nums' array , then the element will be counted.Here,
-0 is falsy, so there will be no count .
-1 is truthy, so count becomes 1.
-2 is truthy, so count becomes 2.
+<i>Explanation : nums.forEach methods iterate over each element in the 'nums' array.If there is a truthy value in the 'nums' array , then the element will be counted.Here first time,
+0 is falsy, so there will be no count .Then,
+1 is truthy, so count becomes 1. Then,
+2 is truthy, so count becomes 2. Finally,
 3 is truthy, so count becomes 3.</i>
 
 </p>
