@@ -1,12 +1,11 @@
 import QRCode from "react-qr-code";
-import logo from "../../assets/Logo.png";
 import { Link } from "react-router-dom";
-// import StarRatings from "react-star-ratings";
+import PropTypes from 'prop-types';
 
 
 const Card = ({event}) => {
 
-        const {id,name,price,card_background,description,date,star_rating,image} = event || {};
+        const {id,name,price,card_background,date,image} = event || {};
 
 
 
@@ -110,5 +109,7 @@ const Card = ({event}) => {
     // </div>
   );
 };
-
+Card.propTypes = {
+  event: PropTypes.object
+};
 export default Card;

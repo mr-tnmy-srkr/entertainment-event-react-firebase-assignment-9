@@ -1,6 +1,8 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuthContext from "../hook/useAuthContext";
 import { FidgetSpinner } from "react-loader-spinner";
+import PropTypes from 'prop-types';
+
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuthContext();
@@ -27,5 +29,7 @@ const PrivateRoute = ({ children }) => {
   }
   return <Navigate state={location.pathname} to="/login"></Navigate>;
 };
-
+PrivateRoute.propTypes = {
+  children: PropTypes.node,
+};
 export default PrivateRoute;

@@ -71,7 +71,7 @@ const Signup = () => {
 
         .then(() => {
 
-        toast.success("User created successful Please Login Now", {
+        toast.success("User created successfully", {
           position: "top-center",
           autoClose: 4000,
           hideProgressBar: false,
@@ -81,12 +81,12 @@ const Signup = () => {
           progress: undefined,
           theme: "colored",
         });
-        logOut();
-        navigate("/login");
+        // logOut();
+        // navigate("/login");
 
         })
       .catch((error) => {
-        const errorCode = error.code;
+        // const errorCode = error.code;
         const errorMessage = error.message;
         // console.log(errorCode, errorMessage);
         toast.error(errorMessage, {

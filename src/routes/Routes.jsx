@@ -8,6 +8,7 @@ import Signup from "../pages/Signup/Signup";
 import { getEvents } from "../utils/getProducts";
 import ViewDetails from "../pages/VewDetails/ViewDetails";
 import PrivateRoute from "./PrivateRoute";
+import Gallery from "../pages/Gallery/Gallery";
 
 
 const routes = createBrowserRouter([
@@ -32,6 +33,9 @@ const routes = createBrowserRouter([
       {
         path: "/bookTickets",
         element: <Home />,
+      }, {
+        path: "/gallery",
+        element: <PrivateRoute><Gallery /></PrivateRoute>,
       },
       {
         path: "/login",

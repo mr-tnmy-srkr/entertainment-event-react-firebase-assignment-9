@@ -56,6 +56,20 @@ const Navbar = () => {
           Book Tickets
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/gallery"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "underline text-blue-700 font-bold text-lg"
+              : "text-lg font-medium"
+          }
+        >
+        Gallery
+        </NavLink>
+      </li>
     </>
   );
 
@@ -120,7 +134,6 @@ const Navbar = () => {
             className="font-bold text-2xl cursor-pointer text-center flex items-center gap-2"
           >
             <div className="hidden md:block">
-              {" "}
               <img className="h-10 w-14" src="/logo.png" alt="" />
             </div>
             <div>
@@ -135,14 +148,16 @@ const Navbar = () => {
         <div className="navbar-end">
           <div className="mr-3 text-xl font-bold hidden md:block">
             <span className="font-medium text-lg">
-        <span className="text-md">Welcome, </span>
-            </span>{user?.displayName}
+              <span className="text-md">Welcome, </span>
+            </span>
+            {user?.displayName}
           </div>
           {/* avatar part */}
           {user ? (
             <label
               tabIndex={0}
-              className="btn btn-ghost btn-circle avatar relative">
+              className="btn btn-ghost btn-circle avatar relative"
+            >
               <div className="w-10 rounded-full" onClick={() => setShow(!show)}>
                 <img src={user.photoURL} alt={user.displayName} />
               </div>
@@ -150,7 +165,8 @@ const Navbar = () => {
           ) : (
             <label
               tabIndex={0}
-              className="btn btn-ghost btn-circle avatar relative">
+              className="btn btn-ghost btn-circle avatar relative"
+            >
               <div className="w-10 rounded-full" onClick={() => setShow(!show)}>
                 <RxAvatar size={40} />
               </div>

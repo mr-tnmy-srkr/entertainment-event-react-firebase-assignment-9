@@ -8,9 +8,10 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { Children, createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebaseConfig";
-import swal from "sweetalert";
+import PropTypes from 'prop-types';
+
 
 export const AuthContext = createContext(null);
 
@@ -84,5 +85,7 @@ const AuthProvider = ({ children }) => {
     </div>
   );
 };
-
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 export default AuthProvider;
