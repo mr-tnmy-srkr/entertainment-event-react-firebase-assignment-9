@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Card = ({ event }) => {
-  const { id, name, price, card_background, date, image } = event || {};
+  const { id, name, price, card_background,description, date, image } = event || {};
 
   const card_bgi = {
     backgroundImage: `url(${card_background})`,
@@ -22,6 +22,7 @@ const Card = ({ event }) => {
         <div data-aos="fade-down">
           <h1 className="font-koulen text-3xl pb-4">
             {name} <span className="text-lg ml-4">2023</span>
+          <p className="text-lg capitalize">{description.slice(0,35)}... <Link className="btn btn-sm" to={`/viewDetails/${id}`}>see more</Link></p>
           </h1>
         </div>
         <div className="outline-dashed outline-2 outline-offset-2">
@@ -114,7 +115,7 @@ const Card = ({ event }) => {
                   maxWidth: "100%",
                   width: "100%",
                 }}
-                value={`localhost/viewDetails/${id}`}
+                value={`https://entertainment-events-management.netlify.app/viewDetails/${id}`}
                 viewBox={`0 0 256 256`}
               />
             </div>
