@@ -20,28 +20,39 @@ const Card = ({event}) => {
     // <div className="grid md:grid-cols-2 gap-5">
       <div className="grid md:grid-cols-3  font-lato ">
         <div style={card_bgi} className={`col-span-2 h-full  p-6 shadow-xl rounded-xl`}>
+<div data-aos="fade-down">
           <h1 className="font-koulen text-3xl pb-4">
            {name} <span className="text-lg ml-4">2023</span>
           </h1>
-         
+          </div>
           <div className="outline-dashed outline-2 outline-offset-2">
             <div className="p-4">
               {/* <h2 className="text-xl font-medium mb-1">100% ONLINE EVENT</h2> */}
               {/* <p className="text-lg font-medium">DESIGNERS</p> */}
               <div className="flex justify-between">
                 <div className="">
+                <div data-aos="flip-right"
+                data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000
+                ">
                   <p className="font-bold pt-1 ">
                     Ticket price:
                     <span className="text-xl font-bold"> $ {price}</span>
                   </p>
+                  </div>
                   <div className="pt-3">
+                  <div data-aos="fade-right" data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000" >
                     <p className="text-xl font-semibold ">DECEMBER</p>
+                    </div>
+                    <div data-aos="fade-left" data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">
                     <p className="">
                       <span className="text-2xl">{date}</span>
                       {/* <span className="text-2xl">20</span> */}
                     </p>
+</div>
                     <p>
-
                    
                     </p>
                   </div>
@@ -63,9 +74,10 @@ const Card = ({event}) => {
                     <img className="w-48" src={image} alt="" />
                   </div>
                   <div className="mt-6 md:hidden">
+                  <div data-aos="zoom-in-up">
                    <Link to={`/viewDetails/${id}`}> <button className="btn btn-primary btn-sm capitalize">
                       View Details
-                    </button></Link>
+                    </button></Link></div>
                   </div>
                 </div>
               </div>
@@ -98,9 +110,10 @@ const Card = ({event}) => {
                   viewBox={`0 0 256 256`}
                 />
               </div>
-
               <div className="text-center">
+              <div data-aos="zoom-in-up">
               <Link to={`/viewDetails/${id}`}><button className="btn capitalize">View Details</button></Link>
+              </div>
               </div>
             </div>
           </div>

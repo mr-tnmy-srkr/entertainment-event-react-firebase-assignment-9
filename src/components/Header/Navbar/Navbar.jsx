@@ -106,7 +106,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100 px-0">
+      <div className="navbar bg-gray-100 shadow-lg px-0">
         <div className="navbar-start">
           <div className="dropdown">
             <label

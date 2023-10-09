@@ -44,10 +44,14 @@ const navigate = useNavigate()
           starDimension="30px"
         starSpacing="5px"
         />
-        
-       <div>
+     <div className="flex gap-4">
+     <div>
        <button onClick={()=>{navigate('/')}} className="btn btn-info capitalize">go Back</button>
-       </div>  </div>
+       </div>
+       <div>
+       <button className="btn btn-info capitalize">Book Now</button>
+       </div> 
+     </div> </div>
         </div>
       </div>
     </div>

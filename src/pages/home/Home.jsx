@@ -60,17 +60,21 @@ const Home = () => {
           <Completionist />
         </Countdown>
       </div>
+      <div data-aos="flip-down">
       <h2 className="text-4xl font-semibold my-8 text-center">Our Services</h2>
+      </div>
       <div className="grid lg:grid-cols-2 gap-10">
         {events?.map((event) => {
           return <Card key={event.id} event={event}></Card>;
         })}
-      </div>
-
-      <div className="my-8 px-6">
-        <h2 className="my-8 text-center text-3xl font-semibold">
+ 
+</div>
+      <div className="mt-8 mb-16 px-6">
+      <div data-aos="flip-up">
+        <h2 className="my-8 text-center text-4xl font-semibold">
           Our Representative
         </h2>
+        </div>
         <Slider {...settings}>
           <div>
             <h3>
@@ -82,8 +86,12 @@ const Home = () => {
                   />
                 </figure>
                 <div className="card-body">
+                <div data-aos="flip-left">
                   <h1 className="card-title">Philip Martin</h1>
+                  </div>
+                  <div data-aos="flip-right">
                   <p>Event Director</p>
+                </div>
                 </div>
               </div>
             </h3>
@@ -98,10 +106,13 @@ const Home = () => {
                   />
                 </figure>
                 <div className="card-body">
-                  <h1 className="card-title">Jonas Kakaroto</h1>
+                <div data-aos="flip-left">
+                  <h1 className="card-title">Jonas Kakaroto</h1></div>
+                  <div data-aos="flip-right">
                   <p>Event Manager</p>
                 </div>
-              </div>
+                </div>
+                </div>
             </h3>
           </div>
           <div>
@@ -114,8 +125,11 @@ const Home = () => {
                   />
                 </figure>
                 <div className="card-body">
-                  <h1 className="card-title">Ransford Quaye</h1>
+                <div data-aos="flip-left">
+                  <h1 className="card-title">Ransford Quaye</h1></div>
+                  <div data-aos="flip-right">
                   <p>Production Manager</p>
+                </div>
                 </div>
               </div>
             </h3>
@@ -130,8 +144,11 @@ const Home = () => {
                   />
                 </figure>
                 <div className="card-body">
-                  <h1 className="card-title">Jeffery Erhunse</h1>
+                <div data-aos="flip-left">
+                  <h1 className="card-title">Jeffery Erhunse</h1></div>
+                  <div data-aos="flip-right">
                   <p>Sponsorship Manager</p>
+                </div>
                 </div>
               </div>
             </h3>
@@ -146,8 +163,11 @@ const Home = () => {
                   />
                 </figure>
                 <div className="card-body">
-                  <h1 className="card-title">Joseph Gonzalez</h1>
+                <div data-aos="flip-left">
+                  <h1 className="card-title">Joseph Gonzalez</h1></div>
+                  <div data-aos="flip-right">
                   <p>Event Coordinator</p>
+                </div>
                 </div>
               </div>
             </h3>
