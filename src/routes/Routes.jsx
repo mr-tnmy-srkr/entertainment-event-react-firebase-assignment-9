@@ -9,6 +9,7 @@ import { getEvents } from "../utils/getProducts";
 import ViewDetails from "../pages/VewDetails/ViewDetails";
 import PrivateRoute from "./PrivateRoute";
 import Gallery from "../pages/Gallery/Gallery";
+import ContactUs from "../pages/ContactUs/ContactUs";
 
 
 const routes = createBrowserRouter([
@@ -27,16 +28,17 @@ const routes = createBrowserRouter([
         loader: getEvents,
       },
       {
-        path: "/events",
-        element: <Events />,
-      },
-      {
-        path: "/bookTickets",
-        element: <Home />,
-      }, {
         path: "/gallery",
         element: <PrivateRoute><Gallery /></PrivateRoute>,
       },
+      {
+        path: "/events",
+        element: <PrivateRoute><Events /></PrivateRoute>,
+      },
+      {
+        path: "/contactUs",
+        element: <ContactUs />,
+      }, 
       {
         path: "/login",
         element: <Login />,

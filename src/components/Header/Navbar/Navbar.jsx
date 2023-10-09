@@ -30,6 +30,20 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
+          to="/gallery"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "underline text-blue-700 font-bold text-lg"
+              : "text-lg font-medium"
+          }
+        >
+        Gallery
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
           to="/events"
           className={({ isActive, isPending }) =>
             isPending
@@ -44,7 +58,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/bookTickets"
+          to="/contactUs"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
@@ -53,23 +67,10 @@ const Navbar = () => {
               : "text-lg font-medium"
           }
         >
-          Book Tickets
+          Contact Us
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/gallery"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? "pending"
-              : isActive
-              ? "underline text-blue-700 font-bold text-lg"
-              : "text-lg font-medium"
-          }
-        >
-        Gallery
-        </NavLink>
-      </li>
+    
     </>
   );
 

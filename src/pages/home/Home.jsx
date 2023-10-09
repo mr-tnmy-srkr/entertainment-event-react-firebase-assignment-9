@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Banner from "../../components/Header/Banner/Banner";
 import Card from "../../components/Card/Card";
 import Countdown from "react-countdown";
@@ -7,10 +7,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import ProgramOrganizer from "../../components/Card/ProgramOrganizer";
+import Marquee from "react-fast-marquee";
 
 const Home = () => {
   const { events } = useLoaderData();
   console.log(events);
+
+ 
 
   const Completionist = () => <span>You are good to go!</span>;
 
@@ -54,14 +57,33 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <div className="text-4xl font-bold flex items-center justify-end my-8">
-        <p className="text-xl mr-2">Remaining : </p>
+
+
+      
+      <div className="text-4xl font-bold flex items-center justify-end mt-8">
+        {/* <p className="text-xl mr-2">Remaining : </p>
         <Countdown date={"2023-12-07T18:00:00"}>
           <Completionist />
-        </Countdown>
+        </Countdown> */}
+
+        {/* <Marquee pauseOnHover={true} speed={120}>
+  <Link className="mr-12" to="/">
+    I can be a React component, multiple React components, or just some
+    text...
+  </Link>
+  <Link className="mr-12" to="/">
+    I can be a React component, multiple React components, or just some
+    text...
+  </Link>
+  <Link className="mr-12" to="/">
+    I can be a React component, multiple React components, or just some
+    text...
+  </Link>
+</Marquee> */}
+
       </div>
       <div data-aos="flip-down">
-      <h2 className="text-4xl font-semibold my-8 text-center">Our Services</h2>
+      <h2 className="text-4xl font-semibold mb-8 text-center">Our Services</h2>
       </div>
       <div className="grid lg:grid-cols-2 gap-10">
         {events?.map((event) => {
