@@ -32,7 +32,7 @@ const routes = createBrowserRouter([
         element: <PrivateRoute><Gallery /></PrivateRoute>,
       },
       {
-        path: "/events",
+        path: "/worldEvents",
         element: <PrivateRoute><Events /></PrivateRoute>,
       },
       {

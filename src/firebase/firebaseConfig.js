@@ -5,14 +5,29 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+/* const firebaseConfig = {
+  apiKey:import.meta.env.VITE_APIKEY,
+  authDomain:import.meta.env.VITE_AUTHDOMAIN,
+  projectId:import.meta.env.VITE_PROJECTID,
+  storageBucket:import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId:import.meta.env.VITE_MESSAGINGSENDERID,
+  appId:import.meta.env.VITE_APPID,
+}; */
+
+// or
+
+const all = import.meta.env;
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB8culBDcyt1hgp6hnvTf-uHSYW9VIN520",
-  authDomain: "entertainment-event-aa481.firebaseapp.com",
-  projectId: "entertainment-event-aa481",
-  storageBucket: "entertainment-event-aa481.appspot.com",
-  messagingSenderId: "74170219491",
-  appId: "1:74170219491:web:188083ca72b691194d3ed6"
-};
+  apiKey:all.VITE_APIKEY,
+  authDomain:all.VITE_AUTHDOMAIN,
+  projectId:all.VITE_PROJECTID,
+  storageBucket:all.VITE_STORAGEBUCKET,
+  messagingSenderId:all.VITE_MESSAGINGSENDERID,
+  appId:all.VITE_APPID,
+}
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

@@ -3,6 +3,7 @@ import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import useAuthContext from "../../hook/useAuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
 const {userLogin} = useAuthContext();
@@ -59,7 +60,9 @@ toast.success('User Login successful', {
 
   return (
     <div>
-     
+       <Helmet>
+            <title>Login</title>
+        </Helmet>
 
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-300 to-purple-200 py-20">
         <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md">

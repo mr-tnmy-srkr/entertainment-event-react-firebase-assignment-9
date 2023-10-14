@@ -44,7 +44,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/events"
+          to="/worldEvents"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"

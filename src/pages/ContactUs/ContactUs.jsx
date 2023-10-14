@@ -1,7 +1,11 @@
+import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
     return (
         <div>
+        <Helmet>
+            <title>Contact Us</title>
+        </Helmet>
         <section className="bg-white ">
     <div className="container px-6 py-12 mx-auto">
         <div className="text-center">

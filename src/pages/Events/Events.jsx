@@ -1,10 +1,14 @@
 import { Map, Marker } from "pigeon-maps"
 import { osm } from 'pigeon-maps/providers'
+import { Helmet } from "react-helmet-async";
 
 
 const Events = () => {
   return (
     <div>
+      <Helmet>
+        <title>Events | World</title>
+      </Helmet>
       <h1 className="text-4xl font-semibold text-center mt-8">
         Our Events in the World
       </h1>

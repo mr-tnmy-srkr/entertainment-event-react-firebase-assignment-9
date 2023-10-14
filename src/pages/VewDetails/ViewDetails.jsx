@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 
@@ -26,7 +27,9 @@ const navigate = useNavigate()
 
   return (
     <div className="my-8">
-    
+      <Helmet>
+            <title>{name}</title>
+        </Helmet>
       <div className="flex flex-col lg:flex-row gap-10 justify-between items-center">
         <div className="flex-1">
             <img className="rounded-xl" src={image} alt="" />

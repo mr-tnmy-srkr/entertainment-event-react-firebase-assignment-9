@@ -6,6 +6,7 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -28,9 +29,9 @@ const Signup = () => {
     const photoUrl = form.get("photoUrl");
     const password = form.get("password");
     const confirmPassword = form.get("confirmPassword");
-    const accepted = e.target.terms.checked;
-
-    // const accepted = form.get("accepted") === "on";
+    const accepted = form.get("terms")==="on";
+    
+    // const accepted = e.target.terms.checked;
     // console.log(accepted);
     /* console.log(
       firstName,
@@ -83,6 +84,7 @@ const Signup = () => {
         });
         // logOut();
         // navigate("/login");
+        navigate("/");
 
         })
       .catch((error) => {
@@ -104,6 +106,9 @@ const Signup = () => {
 
   return (
     <div>
+      <Helmet>
+            <title>Sign Up</title>
+        </Helmet>
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-300 to-purple-200 py-20">
         <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md">
           <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
@@ -244,7 +249,7 @@ const Signup = () => {
                 id="terms"
               />
               <label htmlFor="terms" className="ml-2">
-                Please accept our{" "}
+                Please accept our
                 <a href="#" className="text-blue-800 font-bold cursor-pointer">
                   T&C
                 </a>
