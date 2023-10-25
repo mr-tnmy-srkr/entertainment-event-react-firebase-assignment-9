@@ -2,67 +2,62 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import useAuthContext from "../../hook/useAuthContext";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-const {userLogin} = useAuthContext();
+  const { userLogin } = useAuthContext();
 
-const location = useLocation();
-console.log(location.state);
-const navigate=useNavigate()
+  const location = useLocation();
+  console.log(location.state);
+  const navigate = useNavigate();
 
-
-const handleLogin =(e)=>{
-e.preventDefault();
-const form = new FormData(e.currentTarget)
-// console.log(form);
-const email = form.get('email')
-const password = form.get('password')
-// console.log(email,password);
-
-
-userLogin(email, password)
-.then((userCredential) => {
-  // Signed in 
-  const user = userCredential.user;
-// console.log(user);
-toast.success('User Login successful', {
-  position: "top-center",
-  autoClose: 4000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  theme: "colored",
-  });
-  navigate(location?.state ? location.state : '/')
-})
-.catch((error) => {
-  const errorCode = error.code;
-  const errorMessage = error.message;
-  toast.error(errorMessage, {
-    position: "bottom-center",
-    autoClose: 4000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    theme: "colored",
-    });
-});
-
-
-
-}
-
-
+  const handleLogin = (e) => {
+    e.preventDefault();
+  
+    const form = new FormData(e.currentTarget);
+    // console.log(form);
+    const email = form.get("email");
+    const password = form.get("password");
+    // console.log(email,password);
+   
+    userLogin(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        toast.success("User Login successful", {
+          position: "top-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "colored",
+        });
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(errorCode);
+        const errorMessage = error.message;
+        toast.error(errorMessage, {
+          position: "bottom-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "colored",
+        });
+      })
+  };
 
   return (
     <div>
-       <Helmet>
-            <title>Login</title>
-        </Helmet>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
 
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-300 to-purple-200 py-20">
         <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md">
@@ -136,17 +131,16 @@ toast.success('User Login successful', {
         </div>
       </div>
       <ToastContainer
-autoClose={4000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="colored"
-/>
-
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 };

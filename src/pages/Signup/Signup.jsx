@@ -14,7 +14,8 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
-    const { createUser, updateUserProfile,logOut } = useAuthContext();
+  const { createUser, emailVerification, updateUserProfile, logOut } =
+    useAuthContext();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -29,8 +30,8 @@ const Signup = () => {
     const photoUrl = form.get("photoUrl");
     const password = form.get("password");
     const confirmPassword = form.get("confirmPassword");
-    const accepted = form.get("terms")==="on";
-    
+    const accepted = form.get("terms") === "on";
+
     // const accepted = e.target.terms.checked;
     // console.log(accepted);
     /* console.log(
@@ -66,13 +67,15 @@ const Signup = () => {
         // Signed up
         const user = userCredential.user;
         console.log(user);
+        emailVerification();
+        updateUserProfile(fullName, photoUrl)
+      })
 
+      .then(
         //update user profile
-        updateUserProfile(fullName, photoUrl)})
-
-        .then(() => {
-
-        toast.success("User created successfully", {
+      )
+      .then(() => {
+        toast.success("User created successfully, Please Login now", {
           position: "top-center",
           autoClose: 4000,
           hideProgressBar: false,
@@ -82,11 +85,10 @@ const Signup = () => {
           progress: undefined,
           theme: "colored",
         });
-        // logOut();
-        // navigate("/login");
-        navigate("/");
-
-        })
+        logOut();
+        navigate("/login");
+        // navigate("/");
+      })
       .catch((error) => {
         // const errorCode = error.code;
         const errorMessage = error.message;
@@ -107,8 +109,8 @@ const Signup = () => {
   return (
     <div>
       <Helmet>
-            <title>Sign Up</title>
-        </Helmet>
+        <title>Sign Up</title>
+      </Helmet>
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-300 to-purple-200 py-20">
         <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md">
           <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">

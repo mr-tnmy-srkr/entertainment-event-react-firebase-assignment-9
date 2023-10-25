@@ -151,7 +151,7 @@ const Navbar = () => {
             <span className="font-medium text-lg">
               <span className="text-md">Welcome, </span>
             </span>
-            {user?.displayName}
+            {user?.emailVerified && user.displayName}
           </div>
           {/* avatar part */}
           {user ? (
@@ -160,7 +160,7 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar relative"
             >
               <div className="w-10 rounded-full" onClick={() => setShow(!show)}>
-                <img src={user.photoURL} alt={user.displayName} />
+                <img src={user?.emailVerified && user.photoURL} alt={user.emailVerified ? user.displayName : "user"} />
               </div>
             </label>
           ) : (
@@ -181,7 +181,7 @@ const Navbar = () => {
               tabIndex={0}
               className={`font-bold menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box  absolute top-12 lg:top-16 right-7 space-y-3`}
             >
-              <li className="text-2xl ">{user?.displayName}</li>
+              <li className="text-2xl ">{user?.emailVerified && user.displayName}</li>
               <li className="text-lg">Update Profile</li>
               <li className="text-lg">Settings</li>
               <li onClick={handleLogout} className="text-lg cursor-pointer">

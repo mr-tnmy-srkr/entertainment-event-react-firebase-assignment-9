@@ -3,6 +3,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -35,6 +36,12 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+
+//email verification
+const emailVerification = () => {
+  return sendEmailVerification(auth.currentUser)
+
+}
 
   //google signIn
   const googleSignIn = () => {
@@ -72,13 +79,14 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     createUser,
+    emailVerification,
     userLogin,
     logOut,
     googleSignIn,
     facebookSignIn,
     updateUserProfile,
   };
-
+console.log(user);
   return (
     <div>
       <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
