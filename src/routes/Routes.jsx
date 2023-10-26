@@ -10,6 +10,7 @@ import ViewDetails from "../pages/VewDetails/ViewDetails";
 import PrivateRoute from "./PrivateRoute";
 import Gallery from "../pages/Gallery/Gallery";
 import ContactUs from "../pages/ContactUs/ContactUs";
+import LoginPrivate from "./LoginPrivate";
 
 
 const routes = createBrowserRouter([
@@ -41,11 +42,11 @@ const routes = createBrowserRouter([
       }, 
       {
         path: "/login",
-        element: <Login />,
+        element: <LoginPrivate><Login /></LoginPrivate>,
       },
       {
         path: "/signup",
-        element: <Signup />,
+        element:<LoginPrivate><Signup /></LoginPrivate> ,
       },
     ],
   },
